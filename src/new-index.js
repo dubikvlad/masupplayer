@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import cls from 'classnames'
 import download from 'downloadjs'
@@ -58,7 +57,7 @@ import {
 } from './config/player'
 import SORTABLE_CONFIG from './config/sortable'
 import LOCALE_CONFIG from './locale'
-// import Lyric from './lyric'
+import Lyric from './lyric'
 import {
   adjustVolume,
   arrayEqual,
@@ -71,6 +70,30 @@ import {
 Sortable.mount(new Swap())
 
 const IS_MOBILE = getIsMobile()
+
+const DEFAULT_ICON = {
+  pause: <AnimatePauseIcon />,
+  play: <AnimatePlayIcon />,
+  destroy: <CloseIcon />,
+  close: <CloseIcon />,
+  delete: <DeleteIcon size={24} />,
+  download: <DownloadIcon size={26} />,
+  toggle: <FaMinusSquareOIcon />,
+  lyric: <LyricIcon />,
+  volume: <VolumeUnmuteIcon size={26} />,
+  mute: <VolumeMuteIcon size={26} />,
+  next: <NextAudioIcon />,
+  prev: <PrevAudioIcon />,
+  playLists: <PlayListsIcon />,
+  reload: <ReloadIcon size={22} />,
+  loop: <LoopIcon size={26} />,
+  order: <OrderPlayIcon size={26} />,
+  orderLoop: <RepeatIcon size={26} />,
+  shuffle: <ShufflePlayIcon size={26} />,
+  loading: <LoadIcon />,
+  packUpPanelMobile: <ArrowDownIcon size={26} />,
+  empty: <EmptyIcon />,
+}
 
 const ReactJkMusicPlayer = (props) => {
   const [state, setState] = useState({
@@ -113,12 +136,13 @@ const ReactJkMusicPlayer = (props) => {
     isResetCoverRotate: false,
   })
 
-  // eslint-disable-next-line no-unused-vars
+  console.log('props___________', props)
+  console.log('State', state)
+
   const [audio, setAudio] = useState(null)
 
   const playerRef = useRef()
   const audioRef = useRef(null)
-  // eslint-disable-next-line no-unused-vars
   const destroyBtnRef = useRef()
   const [sortable, setSortable] = useState(null)
   // eslint-disable-next-line no-use-before-define

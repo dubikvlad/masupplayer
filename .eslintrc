@@ -12,12 +12,12 @@
     }
   },
   "rules": {
-    "no-console": [
-      "error",
-      {
-        "allow": ["error"]
-      }
-    ],
+    // "no-console": [
+    //   "error",
+    //   {
+    //     "allow": ["error"]
+    //   }
+    // ],
     "react/display-name": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-props-no-spreading": 0,
@@ -63,7 +63,10 @@
     "no-restricted-syntax": 0,
     "guard-for-in": 0,
     "no-plusplus": 0,
-    "consistent-return": 0
+    "consistent-return": 0,
+
+    "no-unused-vars": 0,
+    "no-console": 0,
   },
   "parser": "babel-eslint",
   "env": {
